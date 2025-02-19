@@ -49,4 +49,20 @@ class IzinController extends Controller
 
         return redirect('/')->with('success', 'Data izin berhasil dihapus');
     }
+
+    public function index(Request $request)
+    {
+        $query = Izin::with('staff');
+
+        if ($request->has('search')) {
+            $query->whereHas('staff', function ($q) use ($request) {
+                $q->where('nama_staff', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        $data = $query->get();
+
+        return view('izin.index', compact('data'));
+    }
+
 }
