@@ -29,7 +29,7 @@
 <body>
     <div class="container">
         <h2 class="text-center">Edit Izin</h2>
-        <form action="{{ route('izin.update', $izin->id) }}" method="POST">
+        <form action="{{ route('izin.update', $izin->id_izin) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">

@@ -87,8 +87,8 @@
                             <td>{{ $izin->status }}</td>
                             <td>{{ $izin->pemberi_izin }}</td>
                             <td>
-                            <a href="{{ route('izin.edit', ['id' => $izin->id_izin]) }}" class="btn btn-update btn-sm">Edit</a>
-                            <form action="/izin/delete/{{ $izin->id }}" method="POST" style="display:inline;">
+                            <a href="{{ url('izin/edit/'.$izin->id_izin) }}" class="btn btn-update btn-sm">Edit</a>
+                            <form action="/izin/delete/{{ $izin->id_izin}}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-delete btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Delete</button>
